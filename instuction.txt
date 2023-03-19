@@ -1,0 +1,16 @@
+Dockerfile: projet node
+FROM node
+WORKDIR /app
+COPY . /app
+RUN npm install
+EXPOSE 3000
+CMD ["node", "server.js"]
+1)docker build .
+2)docker run -p 3001:3000 a53142d5475fc07e582c66c19074eb753381f6c0a056fa90929467fac80507eb
+3)docker run -p 3002:3000 --name cont2_node a53142d5475fc07e582c66c19074eb753381f6c0a056fa90929467fac80507eb
+docker stop cont2_node
+docker start cont2_node
+4)docker container prune
+docker image prune
+5) docker build -t  image3_node:2 .
+6)docker run -p 3004:3000 --rm --name cont3_node a53142d5475fc07e582c66c19074eb753381f6c0a056fa90929467fac80507eb
